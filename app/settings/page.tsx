@@ -145,6 +145,11 @@ export default function SettingsPage() {
               Atlas learns from what you approve, snooze, reject, and hide. Use
               these settings to reduce bloat and personalize what Atlas prepares.
             </p>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-ink-500">
+              Settings can override onboarding or Persona QA defaults. Use Reset
+              settings to return this browser to current onboarding/persona
+              defaults.
+            </p>
           </div>
           <div className="rounded-lg border border-atlas-line bg-white/76 p-4 shadow-card">
             <p className="text-xs font-semibold uppercase text-ink-500">
@@ -522,7 +527,9 @@ export default function SettingsPage() {
               </h2>
               <p className="mt-1 text-sm leading-6 text-ink-600">
                 These controls only clear Atlas localStorage keys in this
-                browser. They do not touch unrelated browser storage.
+                browser. They do not touch unrelated browser storage. Reset
+                settings before loading a persona when you want Settings to
+                reflect persona defaults.
               </p>
             </div>
           </div>

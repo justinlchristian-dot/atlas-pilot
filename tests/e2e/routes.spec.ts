@@ -11,6 +11,8 @@ const routes = [
   { path: "/approvals", text: "Review before Atlas acts" },
   { path: "/audit", text: "Every decision, visible" },
   { path: "/settings", text: "You control what Atlas surfaces" },
+  { path: "/calendar", text: "Pilot placeholder" },
+  { path: "/vault", text: "Pilot placeholder" },
 ];
 
 test.describe("major route smoke tests", () => {

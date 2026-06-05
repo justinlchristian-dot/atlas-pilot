@@ -6,12 +6,14 @@ type PagePlaceholderProps = {
   title: string;
   description: string;
   icon: LucideIcon;
+  placeholderNote?: string;
 };
 
 export function PagePlaceholder({
   title,
   description,
   icon: Icon,
+  placeholderNote,
 }: PagePlaceholderProps) {
   return (
     <AppShell>
@@ -22,10 +24,17 @@ export function PagePlaceholder({
               <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-atlas-line bg-atlas-cloud text-atlas-tide">
                 <Icon aria-hidden="true" size={24} strokeWidth={1.8} />
               </div>
+              <span className="mt-5 inline-flex min-h-8 items-center rounded-full border border-atlas-line bg-atlas-cloud px-3 text-xs font-semibold uppercase text-ink-500">
+                Pilot placeholder
+              </span>
               <h1 className="mt-6 text-3xl font-semibold tracking-normal text-ink-950">
                 {title}
               </h1>
               <p className="mt-3 text-base leading-7 text-ink-600">{description}</p>
+              <p className="mt-4 rounded-lg border border-atlas-line bg-atlas-cloud/70 p-3 text-sm leading-6 text-ink-600">
+                {placeholderNote ??
+                  "This module is planned for later. No real accounts or external data are connected in this pilot."}
+              </p>
             </div>
             <StatusPill status="Quiet" />
           </div>

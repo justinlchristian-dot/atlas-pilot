@@ -50,14 +50,14 @@ export const todayCards: BriefCard[] = [
     title: "Weather Impact",
     status: "Watch",
     description:
-      "Hotter than normal this week. Household maintenance may need an extra check.",
+      "Mock pilot weather may affect routines if they apply to your setup, such as errands, plants, pets, or home comfort checks.",
     icon: CloudSun,
   },
   {
     title: "Calendar Summary",
     status: "Good",
     description:
-      "One meeting this afternoon. Open morning block available.",
+      "Mock pilot calendar shows an example schedule shape only. No real calendar account is connected.",
     icon: CalendarDays,
   },
   {
@@ -118,14 +118,18 @@ export const placeholderPages = {
   calendar: {
     title: "Calendar",
     description:
-      "A future read-only calendar lens for schedule shape, conflicts, focus blocks, and family context.",
+      "A future read-only calendar lens for schedule shape, conflicts, focus blocks, and family context. Not connected to real calendar accounts.",
     icon: CalendarDays,
+    placeholderNote:
+      "No real calendar data is connected. This module is planned for later and will stay read-only until explicit permissions exist.",
   },
   vault: {
     title: "Vault",
     description:
-      "A future private reference space for trusted context, preferences, routines, and important household details.",
+      "A future private reference space for trusted context, preferences, routines, and important household details. Not connected to real documents.",
     icon: ShieldCheck,
+    placeholderNote:
+      "No real document data is connected. This module is planned for later and must use secure storage before real files or sensitive records are added.",
   },
   audit: {
     title: "Audit",

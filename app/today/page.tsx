@@ -340,7 +340,7 @@ export default function TodayPage() {
         <section className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-sm font-medium uppercase text-atlas-sage">
-              Atlas Pilot v1.4
+              Atlas Pilot v1.5
             </p>
             <h1 className="mt-3 text-4xl font-semibold tracking-normal text-ink-950 sm:text-5xl">
               {greeting}
@@ -464,8 +464,8 @@ export default function TodayPage() {
                 : [
                     "Household check due",
                     "Air filters due in 9 days",
-                    "Watering review in watch mode",
-                    "HVAC seasonal prep watch",
+                    "Other routine checks appear only if they apply to your setup",
+                    "Tune Household to quiet anything that does not fit",
                   ]
             }
             href="/command"
@@ -509,8 +509,8 @@ export default function TodayPage() {
             status="Watch"
             items={[
               "Mock pilot weather",
-              "Hotter than normal this week",
-              "Household routines like pool care, watering, or HVAC may need extra attention",
+              "Weather can affect errands, comfort, pets, plants, or home routines if these apply to your setup",
+              "Atlas keeps this as a gentle watch item, not a required task",
             ]}
             href="/command"
             linkLabel="Open home context"
@@ -521,8 +521,8 @@ export default function TodayPage() {
             status="Good"
             items={[
               "Mock pilot calendar",
-              "One meeting this afternoon",
-              "Open morning block available",
+              "Example schedule shape only",
+              "No real calendar account is connected",
             ]}
             href="/calendar"
             linkLabel="Open calendar"

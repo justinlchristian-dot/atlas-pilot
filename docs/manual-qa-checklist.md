@@ -24,6 +24,8 @@ Run this checklist before moving to the next pilot sprint.
 - Select no pool and verify pool is not a primary Household action.
 - Set a grocery provider and verify `/shopping` reflects it.
 - Load each persona from `/personas` and confirm a local confirmation appears.
+- Confirm `/personas` explains that persona loading updates onboarding/profile preferences but does not overwrite existing Settings changes.
+- For clean persona testing, Reset settings or Reset all Atlas pilot data first, then load the persona.
 - Load Busy Parent Homeowner and confirm Today greets Morgan.
 - Load Single Professional Renter and confirm homeowner tasks like pool and yard are not primary.
 - Load Budget-Focused Household and confirm Shopping shows the $150/week target.
@@ -36,6 +38,7 @@ Run this checklist before moving to the next pilot sprint.
 - Open `/pilot-guide` and confirm it explains what to test, what not to enter, limitations, reset behavior, and feedback prompts.
 - Use Reset Pilot Data in `/settings` and confirm it requires confirmation.
 - Confirm reset controls clear only Atlas pilot localStorage keys.
+- Confirm reset clears the active persona marker and preserves unrelated localStorage.
 - Approve, edit, snooze, reject, and hide an approval.
 - Confirm the decision appears in `/audit`.
 - Create a Household approval and confirm it appears in `/approvals`.
@@ -60,6 +63,9 @@ Run this checklist before moving to the next pilot sprint.
 - Confirm Household Off shows household routines are hidden or deemphasized.
 - Confirm Life Area Off cards are labeled Off.
 - Confirm no onboarding profile yet links to setup.
+- Confirm `/calendar` and `/vault` are clearly labeled Pilot placeholder.
+- Confirm `/calendar` says no real calendar data is connected.
+- Confirm `/vault` says no real document data is connected.
 
 ## Responsive Smoke Check
 
@@ -67,9 +73,9 @@ Run this checklist before moving to the next pilot sprint.
 - Check mobile header and horizontal navigation.
 - Check cards stack cleanly on small screens.
 - Check text does not overlap in buttons or cards.
-- Mobile smoke test `/today`, `/onboarding`, `/pilot-guide`, `/personas`, `/command`, `/shopping`, `/approvals`, `/audit`, and `/settings`.
+- Mobile smoke test `/today`, `/onboarding`, `/pilot-guide`, `/personas`, `/command`, `/shopping`, `/approvals`, `/audit`, `/settings`, `/calendar`, and `/vault`.
 - Run browser route smoke tests with `npm run test:e2e`.
-- Confirm desktop route smoke tests pass for `/`, `/today`, `/onboarding`, `/pilot-guide`, `/personas`, `/command`, `/shopping`, `/approvals`, `/audit`, and `/settings`.
+- Confirm desktop route smoke tests pass for `/`, `/today`, `/onboarding`, `/pilot-guide`, `/personas`, `/command`, `/shopping`, `/approvals`, `/audit`, `/settings`, `/calendar`, and `/vault`.
 - Confirm mobile viewport smoke tests pass for the same major routes.
 - Confirm onboarding-to-Today personalization appears in browser testing.
 - Confirm persona load-to-Today personalization appears in browser testing.
@@ -93,6 +99,8 @@ Run this checklist before moving to the next pilot sprint.
 - `/approvals`
 - `/audit`
 - `/settings`
+- `/calendar`
+- `/vault`
 
 ## Release Checklist
 

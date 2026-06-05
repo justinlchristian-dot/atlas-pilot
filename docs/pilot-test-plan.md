@@ -72,6 +72,8 @@ How to test:
 - Visit `/today`, `/command`, `/shopping`, and `/settings`.
 - Confirm the greeting, enabled life areas, household routines, shopping budget, and provider preferences reflect the persona.
 - Confirm unrelated approvals, audit history, settings edits, and shopping edits are not cleared by loading a persona.
+- Persona loading updates onboarding/profile preferences but does not overwrite existing Settings changes.
+- For a fully clean persona test, use Reset settings or Reset all Atlas pilot data first, then load the persona.
 - Use Reset Pilot Data in `/settings` only when you intentionally want to clear local pilot data.
 
 What to look for:
@@ -125,6 +127,7 @@ The app does not submit feedback yet. Send notes manually with:
 - localStorage is not secure storage for sensitive data.
 - localStorage data is device-specific and browser-specific.
 - Persona QA writes synthetic onboarding preferences to localStorage only.
+- Calendar and Vault are pilot placeholders. No real calendar or document data is connected.
 - No AI calls or real automations run.
 - Approvals update local state only.
 - Feedback prompts are static and are not submitted.

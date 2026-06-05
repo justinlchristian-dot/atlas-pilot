@@ -156,6 +156,11 @@ export default function PersonasPage() {
               check whether Atlas emphasizes the right life areas without using
               real sensitive data.
             </p>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-ink-500">
+              Persona loading updates local onboarding/profile preferences. It
+              does not overwrite existing Settings changes; reset Settings first
+              when you want a clean persona test.
+            </p>
           </div>
           <div className="rounded-lg border border-rose-200 bg-rose-50/80 p-4 shadow-card">
             <p className="text-xs font-semibold uppercase text-rose-800">
@@ -185,7 +190,8 @@ export default function PersonasPage() {
                   <p className="mt-1 text-sm leading-6 text-emerald-800">
                     Loaded {loadedPersona.name}. Existing approvals, audit
                     events, settings, shopping edits, and unrelated browser
-                    storage were not cleared.
+                    storage were not cleared. For a fully clean persona test,
+                    reset pilot data first, then load the persona.
                   </p>
                 </div>
               </div>

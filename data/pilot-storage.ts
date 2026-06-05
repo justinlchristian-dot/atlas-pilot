@@ -6,7 +6,7 @@ export type PilotResetScope =
   | "all";
 
 export const atlasPilotStorageKeys = {
-  onboarding: ["atlas-pilot-onboarding-v1"],
+  onboarding: ["atlas-pilot-onboarding-v1", "atlas-pilot-active-persona-v1"],
   workflow: ["atlas-pilot-approvals-v02", "atlas-pilot-audit-v02"],
   settings: ["atlas-pilot-settings-v08"],
   shoppingHousehold: [
@@ -27,7 +27,7 @@ export const pilotResetOptions: Array<{
     id: "onboarding",
     title: "Reset onboarding profile",
     description:
-      "Clears local setup answers, profile name, life areas, and pilot preferences.",
+      "Clears local setup answers, profile name, active persona, life areas, and pilot preferences.",
   },
   {
     id: "workflow",

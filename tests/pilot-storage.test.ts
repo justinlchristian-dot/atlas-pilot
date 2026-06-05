@@ -28,6 +28,7 @@ describe("pilot storage reset helpers", () => {
   it("targets only onboarding keys for onboarding reset", () => {
     expect(getPilotStorageKeysForScope("onboarding")).toEqual([
       "atlas-pilot-onboarding-v1",
+      "atlas-pilot-active-persona-v1",
     ]);
   });
 
@@ -41,13 +42,18 @@ describe("pilot storage reset helpers", () => {
   it("clears only Atlas keys for the selected reset scope", () => {
     const storage = createMockStorage();
     storage.setItem("atlas-pilot-onboarding-v1", "pilot");
+    storage.setItem("atlas-pilot-active-persona-v1", "persona");
     storage.setItem("atlas-pilot-audit-v02", "audit");
     storage.setItem("unrelated-app-key", "keep");
 
     const cleared = resetAtlasPilotStorage(storage, "onboarding");
 
-    expect(cleared).toEqual(["atlas-pilot-onboarding-v1"]);
+    expect(cleared).toEqual([
+      "atlas-pilot-onboarding-v1",
+      "atlas-pilot-active-persona-v1",
+    ]);
     expect(storage.has("atlas-pilot-onboarding-v1")).toBe(false);
+    expect(storage.has("atlas-pilot-active-persona-v1")).toBe(false);
     expect(storage.has("atlas-pilot-audit-v02")).toBe(true);
     expect(storage.has("unrelated-app-key")).toBe(true);
   });
