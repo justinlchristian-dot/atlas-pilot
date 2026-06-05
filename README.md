@@ -72,6 +72,11 @@ npm run build
 Browser smoke tests are separate from `npm run validate` so deployment validation
 stays fast and stable. Run `npm run test:e2e` before test group releases.
 
+## Codex Operating Rules
+
+Future Codex work should follow the permanent testing, audit, persona QA, and
+reporting rules in `docs/codex-operating-rules.md`.
+
 ## Troubleshooting
 
 If `npm run dev` says port 3000 is busy, use another port:

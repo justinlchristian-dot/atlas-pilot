@@ -2,6 +2,12 @@
 
 Run this checklist before moving to the next pilot sprint.
 
+## Before Every Build Is Accepted
+
+- Follow the Codex Definition of Done in `docs/codex-operating-rules.md`.
+- Confirm validation, audit, persona QA, hardcoded-string scans, and external-action scans are reported.
+- Confirm any sandbox e2e limitation is clearly documented instead of treated as a product failure.
+
 ## Core Routes
 
 - `/today` loads and shows approval counts, recent activity, and safety language.
