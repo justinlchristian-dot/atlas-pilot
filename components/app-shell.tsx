@@ -72,7 +72,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
           <div>
             <p className="text-sm font-semibold tracking-normal text-ink-950">Atlas</p>
-            <p className="text-xs text-ink-500">Pilot v1.2</p>
+            <p className="text-xs text-ink-500">Pilot v1.3</p>
           </div>
         </Link>
 
@@ -123,7 +123,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               </div>
               <div>
                 <p className="text-sm font-semibold text-ink-950">Atlas</p>
-                <p className="text-xs text-ink-500">Pilot v1.2</p>
+                <p className="text-xs text-ink-500">Pilot v1.3</p>
               </div>
             </Link>
             <span className="rounded-full border border-atlas-line bg-white/70 px-3 py-1.5 text-xs font-medium text-ink-600">

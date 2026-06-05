@@ -7,7 +7,7 @@ const defaultCreatedAt = "2026-06-04T07:40:00.000Z";
 
 export const demoUserProfile: UserProfile = {
   id: "demo-justin",
-  displayName: "Justin",
+  displayName: "Alex",
   householdName: "Demo Household",
   locale: "en-US",
   timezone: "America/Phoenix",
@@ -476,10 +476,10 @@ export const demoRefundItems: RefundItem[] = [
 ];
 
 export const demoStorePreferences: StorePreference[] = [
-  { store: "Preferred grocery provider", preference: "Demo preference: Walmart-style grocery delivery" },
-  { store: "Preferred household supplier", preference: "Demo preference: Amazon-style household supplies" },
-  { store: "Preferred hardware provider", preference: "Demo preference: Home Depot-style pickup" },
-  { store: "Preferred bulk store", preference: "Demo preference: Costco-style bulk household supplies" },
+  { store: "Preferred grocery provider", preference: "Demo preference: grocery delivery or pickup provider" },
+  { store: "Preferred household supplier", preference: "Demo preference: household supply provider" },
+  { store: "Preferred hardware provider", preference: "Demo preference: hardware pickup provider" },
+  { store: "Preferred bulk store", preference: "Demo preference: bulk household provider" },
 ];
 
 export const demoShoppingRules = [

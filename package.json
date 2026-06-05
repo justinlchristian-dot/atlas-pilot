@@ -1,14 +1,16 @@
 {
   "name": "atlas-pilot",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "typecheck": "tsc --noEmit",
-    "test": "vitest --environment node tests",
-    "test:run": "vitest run --environment node tests",
-    "validate": "tsc --noEmit && vitest run --environment node tests && next build"
+    "test": "vitest --environment node tests --exclude tests/e2e/**",
+    "test:run": "vitest run --environment node tests --exclude tests/e2e/**",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "validate": "tsc --noEmit && vitest run --environment node tests --exclude tests/e2e/** && next build"
   },
   "dependencies": {
     "lucide-react": "0.468.0",
@@ -20,6 +22,7 @@
     "@types/node": "22.15.30",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
+    "@playwright/test": "1.57.0",
     "autoprefixer": "10.4.21",
     "postcss": "8.5.10",
     "tailwindcss": "3.4.17",

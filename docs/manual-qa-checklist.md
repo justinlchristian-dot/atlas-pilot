@@ -61,6 +61,17 @@ Run this checklist before moving to the next pilot sprint.
 - Check cards stack cleanly on small screens.
 - Check text does not overlap in buttons or cards.
 - Mobile smoke test `/today`, `/onboarding`, `/pilot-guide`, `/command`, `/shopping`, `/approvals`, `/audit`, and `/settings`.
+- Run browser route smoke tests with `npm run test:e2e`.
+- Confirm desktop route smoke tests pass for `/`, `/today`, `/onboarding`, `/pilot-guide`, `/command`, `/shopping`, `/approvals`, `/audit`, and `/settings`.
+- Confirm mobile viewport smoke tests pass for the same major routes.
+- Confirm onboarding-to-Today personalization appears in browser testing.
+
+## Tester Feedback Review
+
+- Collect answers to: what felt useful, noisy, missing, trustworthy, risky, worth using daily, and worth paying for.
+- Note which recommendations testers would hide or quiet.
+- Note whether any page feels cramped or hard to scan on mobile.
+- Confirm testers understand feedback is not submitted through the app yet.
 
 ## Vercel Smoke Check
 
@@ -89,5 +100,6 @@ Run this checklist before moving to the next pilot sprint.
 - `npm audit`
 - `npm run typecheck`
 - `npm run test:run`
+- `npm run test:e2e`
 - `npm run build`
 - `npm run validate`

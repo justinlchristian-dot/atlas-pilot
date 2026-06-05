@@ -51,6 +51,14 @@ Day 7:
 - Review `/audit` for clarity.
 - Note what Atlas missed or overemphasized.
 
+## Mobile Testing
+
+- Test on at least one phone-sized viewport or real mobile browser.
+- Confirm the mobile navigation scrolls horizontally and remains usable.
+- Confirm cards stack cleanly without horizontal overflow.
+- Confirm buttons and segmented controls are easy to tap.
+- Confirm `/today`, `/onboarding`, `/pilot-guide`, `/command`, `/shopping`, `/approvals`, `/audit`, and `/settings` remain readable.
+
 ## What Not To Enter
 
 - Passwords, tokens, or account credentials
@@ -68,13 +76,28 @@ Day 7:
 - What would you hide?
 - What would you approve?
 - What would make this worth using daily?
+- What felt trustworthy?
+- What felt risky?
+- Would you use this daily?
+- What would make this worth paying for?
 - Would you trust this with real data if security/auth were added?
+
+## How To Report Feedback
+
+The app does not submit feedback yet. Send notes manually with:
+
+- The route or screen where the feedback happened
+- What you expected
+- What happened
+- Whether it felt useful, noisy, risky, or missing
+- The device/browser used
 
 ## Known Limitations
 
 - No real accounts are connected.
 - No backend, database, or authentication exists.
 - localStorage is not secure storage for sensitive data.
+- localStorage data is device-specific and browser-specific.
 - No AI calls or real automations run.
 - Approvals update local state only.
 - Feedback prompts are static and are not submitted.

@@ -4,7 +4,7 @@ Atlas is a private, approval-based AI life assistant pilot. It helps organize ev
 
 ## Current Pilot Status
 
-- Version: Pilot v1.2
+- Version: Pilot v1.3
 - Framework: Next.js, TypeScript, Tailwind CSS
 - Data mode: mock-only and localStorage-only
 - External actions: none
@@ -64,9 +64,13 @@ Individual commands:
 
 ```bash
 npm run test:run
+npm run test:e2e
 npm run typecheck
 npm run build
 ```
+
+Browser smoke tests are separate from `npm run validate` so deployment validation
+stays fast and stable. Run `npm run test:e2e` before test group releases.
 
 ## Troubleshooting
 

@@ -15,8 +15,10 @@ const feedbackPrompts = [
   "What felt noisy?",
   "What did Atlas miss?",
   "What would you hide?",
-  "What would you approve?",
-  "What would make this worth using daily?",
+  "What felt trustworthy?",
+  "What felt risky?",
+  "Would you use this daily?",
+  "What would make this worth paying for?",
   "Would you trust this with real data if security/auth were added?",
 ];
 
