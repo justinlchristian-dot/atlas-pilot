@@ -159,10 +159,12 @@ export default function AuditPage() {
                 size={24}
               />
               <h2 className="mt-4 text-lg font-semibold text-ink-950">
-                No events in this view
+                No audit events in this view
               </h2>
               <p className="mt-2 text-sm leading-6 text-ink-600">
-                Decisions made in the Approval Center will appear here in mock mode.
+                Decisions made in the Approval Center will appear here in mock
+                mode. If you reset approvals and audit events, this local trail
+                starts fresh.
               </p>
             </div>
           )}

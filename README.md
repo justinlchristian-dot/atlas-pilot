@@ -4,7 +4,7 @@ Atlas is a private, approval-based AI life assistant pilot. It helps organize ev
 
 ## Current Pilot Status
 
-- Version: Pilot v1.1
+- Version: Pilot v1.2
 - Framework: Next.js, TypeScript, Tailwind CSS
 - Data mode: mock-only and localStorage-only
 - External actions: none

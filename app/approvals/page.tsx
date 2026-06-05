@@ -1,6 +1,7 @@
 "use client";
 
 import { AlertTriangle, CheckCircle2, ClipboardList, ShieldCheck } from "lucide-react";
+import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { ApprovalCard } from "@/components/approval-card";
 import { SummaryCard } from "@/components/summary-card";
@@ -77,13 +78,36 @@ export default function ApprovalsPage() {
         </section>
 
         <section className="mt-6 space-y-4">
-          {approvalItems.map((item) => (
-            <ApprovalCard
-              key={item.id}
-              item={item}
-              onDecision={recordDecision}
-            />
-          ))}
+          {approvalItems.length > 0 ? (
+            approvalItems.map((item) => (
+              <ApprovalCard
+                key={item.id}
+                item={item}
+                onDecision={recordDecision}
+              />
+            ))
+          ) : (
+            <div className="rounded-lg border border-atlas-line/80 bg-white/82 p-8 text-center shadow-card">
+              <ClipboardList
+                aria-hidden="true"
+                className="mx-auto text-ink-500"
+                size={24}
+              />
+              <h2 className="mt-4 text-lg font-semibold text-ink-950">
+                No approvals waiting
+              </h2>
+              <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-ink-600">
+                Atlas will show prepared mock actions here when modules create
+                review items. Nothing has been sent, ordered, paid, or changed.
+              </p>
+              <Link
+                href="/pilot-guide"
+                className="mt-4 inline-flex min-h-10 items-center rounded-lg border border-atlas-line bg-white px-3 text-sm font-semibold text-ink-700"
+              >
+                Review pilot testing guide
+              </Link>
+            </div>
+          )}
         </section>
       </div>
     </AppShell>

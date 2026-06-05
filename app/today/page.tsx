@@ -19,6 +19,7 @@ import {
   RiskPill,
 } from "@/components/approval-pills";
 import { ApprovalStatusPill } from "@/components/approval-pills";
+import { PilotModeCard } from "@/components/pilot-mode-card";
 import { StatusPill } from "@/components/status-pill";
 import { homeOperations } from "@/data/life-map";
 import { refundItems, reorderItems, weeklyGroceryPlan } from "@/data/shopping";
@@ -339,7 +340,7 @@ export default function TodayPage() {
         <section className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-sm font-medium uppercase text-atlas-sage">
-              Atlas Pilot v1.1
+              Atlas Pilot v1.2
             </p>
             <h1 className="mt-3 text-4xl font-semibold tracking-normal text-ink-950 sm:text-5xl">
               {greeting}
@@ -368,6 +369,27 @@ export default function TodayPage() {
           <StatusMetric label="High-risk items" value={highRiskApprovals.length} />
           <StatusMetric label="Recent actions" value={recentActions} />
           <StatusMetric label="Operating mode" value="Prepared" />
+        </section>
+
+        <section className="mt-6 grid gap-4 xl:grid-cols-[1fr_0.65fr]">
+          <PilotModeCard />
+          <article className="rounded-lg border border-atlas-line/80 bg-white/86 p-5 shadow-card">
+            <h2 className="text-lg font-semibold text-ink-950">
+              {displayName ? "Testing Atlas?" : "No onboarding profile yet"}
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-ink-600">
+              {displayName
+                ? "Use the Pilot Guide for what to test, what not to enter, and what feedback helps most."
+                : "You can use the demo profile or complete setup. Onboarding stores only local pilot data in this browser."}
+            </p>
+            <Link
+              href={displayName ? "/pilot-guide" : "/onboarding"}
+              className="mt-4 inline-flex min-h-10 items-center gap-2 rounded-lg border border-atlas-line bg-white px-3 text-sm font-semibold text-ink-700"
+            >
+              {displayName ? "Open Pilot Guide" : "Open setup"}
+              <ArrowRight aria-hidden="true" size={16} />
+            </Link>
+          </article>
         </section>
 
         <section className="mt-8 grid gap-4 lg:grid-cols-[1.35fr_0.9fr]">

@@ -26,7 +26,7 @@ cd C:/Users/Justin/OneDrive/Documents/Atlas
 git init
 git status
 git add .
-git commit -m "Prepare Atlas Pilot v1.1 for deployment"
+git commit -m "Prepare Atlas Pilot for deployment"
 git branch -M main
 git remote add origin https://github.com/<your-username>/atlas-pilot.git
 git push -u origin main

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Bell,
   Brain,
@@ -14,7 +15,13 @@ import {
   Store,
 } from "lucide-react";
 import { AppShell } from "@/components/app-shell";
+import { PilotModeCard } from "@/components/pilot-mode-card";
 import { SummaryCard } from "@/components/summary-card";
+import {
+  pilotResetOptions,
+  resetAtlasPilotStorage,
+  type PilotResetScope,
+} from "@/data/pilot-storage";
 import {
   type AutonomyMode,
   type ModuleVisibility,
@@ -116,6 +123,8 @@ export default function SettingsPage() {
     updateShoppingToggle,
     updateSourceToggle,
   } = useAtlasSettings();
+  const [pendingReset, setPendingReset] = useState<PilotResetScope | null>(null);
+  const [resetMessage, setResetMessage] = useState("");
 
   const hiddenActive = settings.hiddenRecommendations.filter(
     (item) => !item.restored,
@@ -173,6 +182,10 @@ export default function SettingsPage() {
             icon={ShieldCheck}
             tone="serious"
           />
+        </section>
+
+        <section className="mt-6">
+          <PilotModeCard />
         </section>
 
         <section className="mt-6 rounded-lg border border-atlas-line/80 bg-white/86 p-5 shadow-card backdrop-blur-sm">
@@ -414,35 +427,47 @@ export default function SettingsPage() {
               </h2>
             </div>
             <div className="mt-5 space-y-3">
-              {settings.hiddenRecommendations.map((item) => (
-                <div
-                  key={item.id}
-                  className="rounded-lg border border-atlas-line bg-atlas-cloud/70 p-4"
-                >
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <p className="text-sm font-semibold text-ink-950">
-                        {item.title}
-                      </p>
-                      <p className="mt-1 text-sm leading-6 text-ink-600">
-                        {item.reason}
-                      </p>
-                      <p className="mt-1 text-xs font-medium text-ink-500">
-                        Scope: {item.scope}
-                      </p>
+              {settings.hiddenRecommendations.some((item) => !item.restored) ? (
+                settings.hiddenRecommendations.map((item) => (
+                  <div
+                    key={item.id}
+                    className="rounded-lg border border-atlas-line bg-atlas-cloud/70 p-4"
+                  >
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <p className="text-sm font-semibold text-ink-950">
+                          {item.title}
+                        </p>
+                        <p className="mt-1 text-sm leading-6 text-ink-600">
+                          {item.reason}
+                        </p>
+                        <p className="mt-1 text-xs font-medium text-ink-500">
+                          Scope: {item.scope}
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        disabled={item.restored}
+                        onClick={() => restoreHiddenRecommendation(item.id)}
+                        className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-atlas-line bg-white px-3 text-sm font-medium text-ink-700 disabled:cursor-not-allowed disabled:opacity-60"
+                      >
+                        <RotateCcw aria-hidden="true" size={16} />
+                        {item.restored ? "Restored" : "Restore"}
+                      </button>
                     </div>
-                    <button
-                      type="button"
-                      disabled={item.restored}
-                      onClick={() => restoreHiddenRecommendation(item.id)}
-                      className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-atlas-line bg-white px-3 text-sm font-medium text-ink-700 disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                      <RotateCcw aria-hidden="true" size={16} />
-                      {item.restored ? "Restored" : "Restore"}
-                    </button>
                   </div>
+                ))
+              ) : (
+                <div className="rounded-lg border border-atlas-line bg-atlas-cloud/70 p-4">
+                  <p className="text-sm font-semibold text-ink-950">
+                    No hidden recommendations
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-ink-600">
+                    Hidden or muted items will appear here so testers can restore
+                    them later.
+                  </p>
                 </div>
-              ))}
+              )}
             </div>
           </article>
 
@@ -486,6 +511,96 @@ export default function SettingsPage() {
               </div>
             </div>
           </article>
+        </section>
+
+        <section className="mt-6 rounded-lg border border-atlas-line/80 bg-white/86 p-5 shadow-card">
+          <div className="flex items-center gap-3">
+            <RotateCcw aria-hidden="true" className="text-atlas-tide" size={20} />
+            <div>
+              <h2 className="text-xl font-semibold text-ink-950">
+                Reset Pilot Data
+              </h2>
+              <p className="mt-1 text-sm leading-6 text-ink-600">
+                These controls only clear Atlas localStorage keys in this
+                browser. They do not touch unrelated browser storage.
+              </p>
+            </div>
+          </div>
+          {resetMessage ? (
+            <div className="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm font-medium text-emerald-900">
+              {resetMessage}
+            </div>
+          ) : null}
+          <div className="mt-5 grid gap-3 lg:grid-cols-2">
+            {pilotResetOptions.map((option) => {
+              const confirming = pendingReset === option.id;
+
+              return (
+                <div
+                  key={option.id}
+                  className="rounded-lg border border-atlas-line bg-atlas-cloud/70 p-4"
+                >
+                  <p className="text-sm font-semibold text-ink-950">
+                    {option.title}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-ink-600">
+                    {option.description}
+                  </p>
+                  {confirming ? (
+                    <div className="mt-4 rounded-lg border border-rose-200 bg-rose-50 p-3">
+                      <p className="text-sm font-semibold text-rose-900">
+                        Confirm reset?
+                      </p>
+                      <p className="mt-1 text-xs leading-5 text-rose-800">
+                        This clears local pilot data for this browser only. A
+                        full reset cannot keep an audit event because the audit
+                        log is reset too.
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const cleared = resetAtlasPilotStorage(
+                              window.localStorage,
+                              option.id,
+                            );
+                            window.dispatchEvent(
+                              new Event("atlas-workflow-store-updated"),
+                            );
+                            setResetMessage(
+                              `Reset complete. Cleared ${cleared.length} Atlas pilot key${cleared.length === 1 ? "" : "s"}. Refresh or revisit pages to reload mock defaults.`,
+                            );
+                            setPendingReset(null);
+                          }}
+                          className="inline-flex min-h-9 items-center rounded-lg border border-rose-700 bg-rose-700 px-3 text-sm font-semibold text-white"
+                        >
+                          Confirm reset
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setPendingReset(null)}
+                          className="inline-flex min-h-9 items-center rounded-lg border border-atlas-line bg-white px-3 text-sm font-semibold text-ink-700"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setResetMessage("");
+                        setPendingReset(option.id);
+                      }}
+                      className="mt-4 inline-flex min-h-10 items-center rounded-lg border border-atlas-line bg-white px-3 text-sm font-semibold text-ink-700"
+                    >
+                      Reset
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </section>
       </div>
     </AppShell>
