@@ -340,7 +340,7 @@ export default function TodayPage() {
         <section className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-sm font-medium uppercase text-atlas-sage">
-              Atlas Pilot v1.3
+              Atlas Pilot v1.4
             </p>
             <h1 className="mt-3 text-4xl font-semibold tracking-normal text-ink-950 sm:text-5xl">
               {greeting}

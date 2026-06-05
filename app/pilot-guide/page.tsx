@@ -23,6 +23,7 @@ const feedbackPrompts = [
 ];
 
 const testAreas = [
+  "Load a synthetic persona from Persona QA Mode.",
   "Complete onboarding with a light profile.",
   "Review Today and notice what feels relevant or noisy.",
   "Tune Life Areas to Enabled, Quiet, or Off.",
@@ -60,6 +61,27 @@ export default function PilotGuidePage() {
 
         <section className="mt-8">
           <PilotModeCard />
+        </section>
+
+        <section className="mt-6 rounded-lg border border-atlas-line/80 bg-white/86 p-5 shadow-card">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-xl font-semibold text-ink-950">
+                Persona QA Mode
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-ink-600">
+                Load synthetic demo households to test whether Atlas adapts
+                across lifestyles without using real sensitive data.
+              </p>
+            </div>
+            <Link
+              href="/personas"
+              className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-atlas-line bg-white px-3 text-sm font-semibold text-ink-700"
+            >
+              Open personas
+              <ArrowRight aria-hidden="true" size={16} />
+            </Link>
+          </div>
         </section>
 
         <section className="mt-6 grid gap-4 lg:grid-cols-2">

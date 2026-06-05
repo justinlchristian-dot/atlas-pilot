@@ -14,6 +14,7 @@ import {
   ScrollText,
   Settings,
   Shield,
+  UsersRound,
   UserRound,
 } from "lucide-react";
 import type { ApprovalItem } from "@/data/approvals";
@@ -24,6 +25,7 @@ const navItems = [
   { href: "/command", label: "Life Map", icon: Command },
   { href: "/approvals", label: "Approvals", icon: CheckCircle2 },
   { href: "/shopping", label: "Shopping", icon: ShoppingCart },
+  { href: "/personas", label: "Personas", icon: UsersRound },
   { href: "/onboarding", label: "Setup", icon: UserRound },
   { href: "/pilot-guide", label: "Pilot Guide", icon: BookOpen },
   { href: "/calendar", label: "Calendar", icon: CalendarDays },
@@ -72,7 +74,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
           <div>
             <p className="text-sm font-semibold tracking-normal text-ink-950">Atlas</p>
-            <p className="text-xs text-ink-500">Pilot v1.3</p>
+            <p className="text-xs text-ink-500">Pilot v1.4</p>
           </div>
         </Link>
 
@@ -123,7 +125,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               </div>
               <div>
                 <p className="text-sm font-semibold text-ink-950">Atlas</p>
-                <p className="text-xs text-ink-500">Pilot v1.3</p>
+                <p className="text-xs text-ink-500">Pilot v1.4</p>
               </div>
             </Link>
             <span className="rounded-full border border-atlas-line bg-white/70 px-3 py-1.5 text-xs font-medium text-ink-600">

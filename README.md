@@ -1,10 +1,10 @@
 # Atlas Pilot
 
-Atlas is a private, approval-based AI life assistant pilot. It helps organize everyday life admin across a daily brief, onboarding, Life Map, household routines, shopping prep, approvals, audit history, and settings.
+Atlas is a private, approval-based AI life assistant pilot. It helps organize everyday life admin across a daily brief, onboarding, Persona QA Mode, Life Map, household routines, shopping prep, approvals, audit history, and settings.
 
 ## Current Pilot Status
 
-- Version: Pilot v1.3
+- Version: Pilot v1.4
 - Framework: Next.js, TypeScript, Tailwind CSS
 - Data mode: mock-only and localStorage-only
 - External actions: none

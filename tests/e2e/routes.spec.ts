@@ -7,6 +7,7 @@ const routes = [
   { path: "/pilot-guide", text: "Help test Atlas safely" },
   { path: "/command", text: "What Atlas understands" },
   { path: "/shopping", text: "Prepared, not ordered" },
+  { path: "/personas", text: "Test Atlas with synthetic households" },
   { path: "/approvals", text: "Review before Atlas acts" },
   { path: "/audit", text: "Every decision, visible" },
   { path: "/settings", text: "You control what Atlas surfaces" },
@@ -53,4 +54,17 @@ test("onboarding display name personalizes Today", async ({ page }) => {
 
   await page.goto("/today");
   await expect(page.getByText("Good morning, Pilot Tester.")).toBeVisible();
+});
+
+test("loading a persona personalizes Today", async ({ page }) => {
+  await page.goto("/personas");
+  await page
+    .getByRole("button", { name: /Load persona/i })
+    .first()
+    .click();
+  await expect(page.getByText("Persona loaded locally")).toBeVisible();
+
+  await page.getByRole("link", { name: /Go to Today/i }).click();
+  await expect(page.getByText("Good morning, Morgan.")).toBeVisible();
+  await expect(page.getByText("Enabled life areas today")).toBeVisible();
 });

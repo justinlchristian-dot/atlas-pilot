@@ -15,6 +15,7 @@ Do not use this pilot with real sensitive data.
 ## 7-Day Test Flow
 
 Day 1:
+- Open `/personas` and load one synthetic demo persona, or open `/onboarding`.
 - Open `/onboarding`.
 - Complete setup with light, non-sensitive information.
 - Visit `/today` and note whether the brief feels useful.
@@ -57,7 +58,32 @@ Day 7:
 - Confirm the mobile navigation scrolls horizontally and remains usable.
 - Confirm cards stack cleanly without horizontal overflow.
 - Confirm buttons and segmented controls are easy to tap.
-- Confirm `/today`, `/onboarding`, `/pilot-guide`, `/command`, `/shopping`, `/approvals`, `/audit`, and `/settings` remain readable.
+- Confirm `/today`, `/onboarding`, `/pilot-guide`, `/personas`, `/command`, `/shopping`, `/approvals`, `/audit`, and `/settings` remain readable.
+
+## Persona QA Testing
+
+Personas are synthetic demo users. They are meant for product testing only and
+should not be replaced with real sensitive data.
+
+How to test:
+
+- Open `/personas`.
+- Load one persona.
+- Visit `/today`, `/command`, `/shopping`, and `/settings`.
+- Confirm the greeting, enabled life areas, household routines, shopping budget, and provider preferences reflect the persona.
+- Confirm unrelated approvals, audit history, settings edits, and shopping edits are not cleared by loading a persona.
+- Use Reset Pilot Data in `/settings` only when you intentionally want to clear local pilot data.
+
+What to look for:
+
+- Busy Parent Homeowner should emphasize family, household tasks, groceries, reminders, and approvals.
+- Single Professional Renter should emphasize work, documents, bills/subscriptions, and simple shopping without primary homeowner maintenance.
+- Retired Couple should use simple language and emphasize household routines, reminders, documents, shopping, and family.
+- Small Business Owner should emphasize projects, business/admin follow-ups, documents, supplies, and approvals.
+- Caregiver / Adult Child should keep legal and health wording review-only, not advice.
+- Budget-Focused Household should emphasize budget, shopping totals, subscriptions/refunds, and basic household without extras.
+- Non-Technical User should keep setup light, gentle, and not overwhelming.
+- Power User / Life Admin Heavy should show broader coverage while staying calm, approval-first, and auditable.
 
 ## What Not To Enter
 
@@ -98,6 +124,7 @@ The app does not submit feedback yet. Send notes manually with:
 - No backend, database, or authentication exists.
 - localStorage is not secure storage for sensitive data.
 - localStorage data is device-specific and browser-specific.
+- Persona QA writes synthetic onboarding preferences to localStorage only.
 - No AI calls or real automations run.
 - Approvals update local state only.
 - Feedback prompts are static and are not submitted.
