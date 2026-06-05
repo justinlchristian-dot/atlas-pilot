@@ -30,6 +30,7 @@ const testAreas = [
   "Try Household and Shopping mock actions.",
   "Approve, snooze, reject, hide, or edit a mock recommendation.",
   "Review the Audit Log after decisions.",
+  "Capture non-sensitive notes in the Feedback Log.",
   "Reset pilot data from Settings and confirm the experience restarts cleanly.",
 ];
 
@@ -79,6 +80,27 @@ export default function PilotGuidePage() {
               className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-atlas-line bg-white px-3 text-sm font-semibold text-ink-700"
             >
               Open personas
+              <ArrowRight aria-hidden="true" size={16} />
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-6 rounded-lg border border-atlas-line/80 bg-white/86 p-5 shadow-card">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-xl font-semibold text-ink-950">
+                Feedback Log
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-ink-600">
+                Save local tester observations and persona findings. Feedback is
+                not submitted anywhere in this pilot.
+              </p>
+            </div>
+            <Link
+              href="/feedback"
+              className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-atlas-line bg-white px-3 text-sm font-semibold text-ink-700"
+            >
+              Open feedback
               <ArrowRight aria-hidden="true" size={16} />
             </Link>
           </div>

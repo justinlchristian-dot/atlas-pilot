@@ -18,6 +18,7 @@ Run this checklist before moving to the next pilot sprint.
 - `/command` loads and Household actions can prepare approvals/audit events.
 - `/shopping` loads and Shopping actions can prepare approvals/audit events.
 - `/personas` loads and shows synthetic demo persona cards.
+- `/feedback` loads and saves feedback notes and persona findings locally.
 - `/settings` loads and Tune Atlas controls are visible.
 
 ## Workflow Checks
@@ -37,6 +38,8 @@ Run this checklist before moving to the next pilot sprint.
 - Load Budget-Focused Household and confirm Shopping shows the $150/week target.
 - Load Non-Technical User and confirm household setup-needed behavior can be tested.
 - Confirm persona loading does not clear approvals, audit events, settings edits, or shopping edits unless Reset Pilot Data is used.
+- Add a Feedback Log note and confirm it persists after refresh.
+- Add a Persona Finding and confirm it records help, noise, confusion, trust concern, and default mode.
 - Skip onboarding and confirm demo mode remains available.
 - Refresh after onboarding and confirm setup choices persist locally.
 - Confirm onboarding does not connect real accounts.
@@ -45,6 +48,7 @@ Run this checklist before moving to the next pilot sprint.
 - Use Reset Pilot Data in `/settings` and confirm it requires confirmation.
 - Confirm reset controls clear only Atlas pilot localStorage keys.
 - Confirm reset clears the active persona marker and preserves unrelated localStorage.
+- Confirm reset can clear feedback and persona finding keys.
 - Approve, edit, snooze, reject, and hide an approval.
 - Confirm the decision appears in `/audit`.
 - Create a Household approval and confirm it appears in `/approvals`.
@@ -79,9 +83,9 @@ Run this checklist before moving to the next pilot sprint.
 - Check mobile header and horizontal navigation.
 - Check cards stack cleanly on small screens.
 - Check text does not overlap in buttons or cards.
-- Mobile smoke test `/today`, `/onboarding`, `/pilot-guide`, `/personas`, `/command`, `/shopping`, `/approvals`, `/audit`, `/settings`, `/calendar`, and `/vault`.
+- Mobile smoke test `/today`, `/onboarding`, `/pilot-guide`, `/personas`, `/feedback`, `/command`, `/shopping`, `/approvals`, `/audit`, `/settings`, `/calendar`, and `/vault`.
 - Run browser route smoke tests with `npm run test:e2e`.
-- Confirm desktop route smoke tests pass for `/`, `/today`, `/onboarding`, `/pilot-guide`, `/personas`, `/command`, `/shopping`, `/approvals`, `/audit`, `/settings`, `/calendar`, and `/vault`.
+- Confirm desktop route smoke tests pass for `/`, `/today`, `/onboarding`, `/pilot-guide`, `/personas`, `/feedback`, `/command`, `/shopping`, `/approvals`, `/audit`, `/settings`, `/calendar`, and `/vault`.
 - Confirm mobile viewport smoke tests pass for the same major routes.
 - Confirm onboarding-to-Today personalization appears in browser testing.
 - Confirm persona load-to-Today personalization appears in browser testing.
@@ -100,6 +104,7 @@ Run this checklist before moving to the next pilot sprint.
 - `/onboarding`
 - `/pilot-guide`
 - `/personas`
+- `/feedback`
 - `/command`
 - `/shopping`
 - `/approvals`

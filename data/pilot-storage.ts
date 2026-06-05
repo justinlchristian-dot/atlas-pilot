@@ -3,6 +3,7 @@ export type PilotResetScope =
   | "workflow"
   | "settings"
   | "shopping-household"
+  | "feedback"
   | "all";
 
 export const atlasPilotStorageKeys = {
@@ -15,6 +16,10 @@ export const atlasPilotStorageKeys = {
     "atlas-pilot-grocery-plan-v04",
     "atlas-pilot-reorders-v04",
     "atlas-pilot-refunds-v04",
+  ],
+  feedback: [
+    "atlas-pilot-feedback-entries-v01",
+    "atlas-pilot-persona-findings-v01",
   ],
 } as const;
 
@@ -48,6 +53,12 @@ export const pilotResetOptions: Array<{
       "Clears local grocery, reorder, refund, and household routine edits.",
   },
   {
+    id: "feedback",
+    title: "Reset feedback and persona findings",
+    description:
+      "Clears local tester feedback notes and Persona QA findings.",
+  },
+  {
     id: "all",
     title: "Reset all Atlas pilot data",
     description:
@@ -73,6 +84,7 @@ export function getAllAtlasPilotStorageKeys() {
     ...atlasPilotStorageKeys.workflow,
     ...atlasPilotStorageKeys.settings,
     ...atlasPilotStorageKeys.shoppingHousehold,
+    ...atlasPilotStorageKeys.feedback,
   ];
 }
 

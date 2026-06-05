@@ -13,6 +13,7 @@ const routes = [
   { path: "/settings", text: "You control what Atlas surfaces" },
   { path: "/calendar", text: "Pilot placeholder" },
   { path: "/vault", text: "Pilot placeholder" },
+  { path: "/feedback", text: "Capture tester notes without sending data" },
 ];
 
 test.describe("major route smoke tests", () => {
