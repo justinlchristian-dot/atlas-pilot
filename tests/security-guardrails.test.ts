@@ -59,4 +59,32 @@ describe("security and privacy guardrails", () => {
 
     expect(offenders).toEqual([]);
   });
+
+  it("documents the Bank-Grade Security Gate before real data or connectors", () => {
+    const auditDoc = readFileSync("docs/cybersecurity-audit.md", "utf8");
+    const roadmapDoc = readFileSync("docs/production-security-roadmap.md", "utf8");
+
+    expect(auditDoc).toContain("Bank-Grade Security Gate");
+    expect(auditDoc).toContain("No sensitive data in localStorage");
+    expect(auditDoc).toContain("External security review before production");
+    expect(roadmapDoc).toContain("Level 0: Mock Demo");
+    expect(roadmapDoc).toContain("Level 6: External-Security-Reviewed Production");
+  });
+
+  it("documents connector token storage and approval limits", () => {
+    const connectorDoc = readFileSync("docs/connector-security-model.md", "utf8");
+
+    expect(connectorDoc).toContain("Connector tokens must live in a server-side token vault");
+    expect(connectorDoc).toContain("Connector tokens must never be stored in browser localStorage");
+    expect(connectorDoc).toMatch(
+      /No connector may send, order, pay, cancel, message, modify, or contact a\s+vendor without explicit user approval/,
+    );
+  });
+
+  it("documents Codex security-gate blocking rules", () => {
+    const operatingRules = readFileSync("docs/codex-operating-rules.md", "utf8");
+
+    expect(operatingRules).toContain("Codex may not implement real connectors");
+    expect(operatingRules).toContain("Bank-Grade Security Gate is explicitly scoped and approved");
+  });
 });

@@ -63,6 +63,7 @@ Run this checklist before moving to the next pilot sprint.
 - Confirm approval-required language remains visible.
 - Confirm sensitive/legal items remain draft-only or review-recommended.
 - Confirm Pilot Mode status is visible on Today and Settings.
+- If a task touches auth, data storage, connectors, AI tools, or external actions, verify the Bank-Grade Security Gate is satisfied or mark the task blocked.
 
 ## Empty States
 

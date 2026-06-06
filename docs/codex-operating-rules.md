@@ -35,6 +35,7 @@ deployment prep unless a user explicitly scopes a different task.
 - Do not introduce legal, financial, or medical advice.
 - Preserve approval-first and audit-first architecture.
 - Keep everything mock-only and localStorage-only until backend/security scope is explicitly approved.
+- Codex may not implement real connectors, backend user data storage, AI tool execution, or external actions until the Bank-Grade Security Gate is explicitly scoped and approved.
 
 ## Required Codex Definition Of Done
 
@@ -137,4 +138,3 @@ Until production security scope is explicitly approved, Atlas must remain a loca
 - Approval and audit behavior still work.
 - Known vulnerabilities are reported.
 - Atlas remains safe for pilot testers using synthetic or non-sensitive data.
-
